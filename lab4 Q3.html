@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Number Loop Example</title>
+    <style>
+        body {
+            background: linear-gradient(to right,  #ff9966, #ff5e62);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #demo {
+            font-size: 24px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        button {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff1f5b;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="demo"></p>
+    <button onclick="displayNumbers()">Show Numbers</button>
+
+    <script>
+        function displayNumbers() {
+            let text = "";
+
+            // Loop to produce the expected output
+            for (let i = 1; i <= 5; i++) {
+                text += "The number is " + i + "<br>";
+            }
+
+            const demoElement = document.getElementById("demo");
+            demoElement.innerHTML = text;
+            demoElement.style.opacity = 1; // Fade in effect
+        }
+    </script>
+
+</body>
+</html>

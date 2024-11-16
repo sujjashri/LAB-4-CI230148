@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Content Change Example</title>
+    <style>
+        body {
+            background: linear-gradient(to right,  #ff9966, #ff5e62);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #myElement {
+            text-align: center;
+            transition: transform 0.5s ease;
+        }
+
+        #myParagraph {
+            font-size: 24px;
+            margin: 20px 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        button {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff1f5b;
+        }
+    </style>
+    <script>
+        let currentMessageIndex = 0;
+        const messages = [
+            "Welcome to my website!",
+            "Hello there!",
+        ];
+
+        function changeContent() {
+            const paragraph = document.getElementById("myParagraph");
+            paragraph.style.opacity = 0; // Fade out
+
+            setTimeout(() => {
+                currentMessageIndex = (currentMessageIndex + 1) % messages.length; // Cycle through messages
+                paragraph.innerText = messages[currentMessageIndex];
+                paragraph.style.opacity = 1; // Fade in
+            }, 500); // Wait for fade out to complete
+        }
+    </script>
+</head>
+<body>
+    <div id="myElement">
+        <p id="myParagraph">Welcome to my website!</p>
+    </div>
+    <button onclick="changeContent()">Change Content</button>
+</body>
+</html>

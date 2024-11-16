@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Validation Example</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            font-family: Arial, sans-serif;
+        }
+
+        #customAlert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        #customAlert h2 {
+            margin-top: 0;
+        }
+
+        button {
+            background-color: #ff5e62;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #e64a53;
+        }
+    </style>
+    <script>
+        function checkInput() {
+            // Get the value from the input field
+            var input = document.getElementById("userInput").value;
+
+            // Check if the input is a number
+            if (isNaN(input) || input.trim() === "") {
+                showCustomAlert("Please insert a number!");
+            } else {
+                // Convert the input to a number
+                var number = parseFloat(input);
+
+                // Check if the number is lower or higher than 10
+                if (number < 10) {
+                    showCustomAlert("The number is lower than 10");
+                } else {
+                    showCustomAlert("The number is higher than 10");
+                }
+            }
+        }
+
+        function showCustomAlert(message) {
+            var customAlert = document.getElementById("customAlert");
+            customAlert.innerHTML = `<h2>${message}</h2><button onclick="customAlert.style.display = 'none';">OK</button>`;
+            customAlert.style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="userInput" placeholder="Enter a number">
+    <button onclick="checkInput()">Check</button>
+    <div id="customAlert"></div>
+</body>
+</html>
